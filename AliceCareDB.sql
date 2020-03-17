@@ -13,6 +13,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `teste`
 --
+DROP DATABASE AliceCareDB;
 create DATABASE if not exists AliceCareDB;
 
 use AliceCareDB;
