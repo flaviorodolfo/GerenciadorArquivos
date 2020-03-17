@@ -108,6 +108,7 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `admin`) VALUES
 (2, 'VITOR HUGO', 'vitorhugosg@gmail.com', 'e715778c9f759efab451c2eb7bf42332', 1),
 (4, 'teste3', 'vhcode@gmail.com', 'e715778c9f759efab451c2eb7bf42332', 0),
+(10,'Flávio Rodolfo','flaviorodolfo@ufs.br','f76405ac130dac085b2a6249073b213b',1),
 (6, 'admin', 'admin@admin.com', '698dc19d489c4e4db73e28a713eab07b', 1);
 
 --
