@@ -1,20 +1,40 @@
 <?php
 
+
+
 // Default language
 $lang = 'en';
 
 // Auth with login/password (set true/false to enable/disable it)
 $use_auth = true;
 
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "AliceCareDB";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+$sql = "SELECT email, senha FROM usuarios WHERE admin = 1";
+$result = $conn->query($sql);
+
 // Users: array('Username' => 'Password', 'Username2' => 'Password2', ...), Password has to encripted into MD5
-$auth_users = array(
-    'root' => '827ccb0eea8a706c4c34a16891f84e7b', //12345
-    'user1' => '827ccb0eea8a706c4c34a16891f84e7b', //12345
-);
+
+$auth_users = array();
+for($i = 0; $aux = $result->fetch_array(MYSQLI_ASSOC);   $i++) {
+	$auth_users += [$aux['email']=>$aux['senha']];
+}
+
+//print_r($auth_users);
+
 
 // Readonly users (usernames array)
 $readonly_users = array(
-    'user'
+    'convidado'
 );
 
 // Show or hide files and folders that starts with a dot
@@ -154,7 +174,7 @@ if ($use_auth) {
             fm_redirect(FM_SELF_URL . '?p=');
         } else {
             unset($_SESSION['logged']);
-            fm_set_msg('Invalid Username / Password', 'error');
+            fm_set_msg('Login ou Senha inválidos', 'error');
             fm_redirect(FM_SELF_URL);
         }
     } else {
