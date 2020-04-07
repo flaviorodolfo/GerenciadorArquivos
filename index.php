@@ -9,24 +9,24 @@ $lang = 'en';
 $use_auth = true;
 
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "AliceCareDB";
+$servername = 'localhost';
+$username = 'root';
+$password = '';
+$dbname = 'AliceCareDB';
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-$sql = "SELECT email, senha FROM usuarios WHERE admin = 1";
+$sql = "SELECT nome, senha FROM usuarios WHERE admin = 1";
 $result = $conn->query($sql);
 
 // Users: array('Username' => 'Password', 'Username2' => 'Password2', ...), Password has to encripted into MD5
 
 $auth_users = array();
 for($i = 0; $aux = $result->fetch_array(MYSQLI_ASSOC);   $i++) {
-	$auth_users += [$aux['email']=>$aux['senha']];
+	$auth_users += [$aux['nome']=>$aux['senha']];
 }
 
 //print_r($auth_users);

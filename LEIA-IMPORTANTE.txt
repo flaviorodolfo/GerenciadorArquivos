@@ -1,0 +1,5 @@
+Prezados,
+No começo não estava conseguindo acessar esse repositório e por isso eu fui trabalhando no meu repositório privado.
+
+Caso haja necessidade de analisar o passo-a-passo eu tornei o repositório publico.
+Link: https://github.com/flaviorodolfo/GerenciadorArquivos
